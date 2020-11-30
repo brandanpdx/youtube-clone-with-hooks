@@ -5,22 +5,11 @@ import VideoDetail from "./VideoDetail";
 import youtube from "./../apis/youtube";
 
 const App = () => {
-  const [videos, setVideos] = useState([]);
+  
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  useEffect(() => {
-    onTermSubmit("reactjs");
-  }, []);
+  // setSelectedVideo(response.data.items[0]);
 
-  const onTermSubmit = async (term) => {
-    const response = await youtube.get("/search", {
-      params: {
-        q: term,
-      },
-    });
-    setVideos(response.data.items);
-    setSelectedVideo(response.data.items[0]);
-  };
 
   return (
     <div className="ui container">
