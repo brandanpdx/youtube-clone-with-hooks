@@ -21,9 +21,6 @@ const App = () => {
     setVideos(response.data.items);
     setSelectedVideo(response.data.items[0]);
   };
-  const onVideoSelect = (videos) => {
-    setSelectedVideo(videos);
-  };
 
   return (
     <div className="ui container">
@@ -34,7 +31,10 @@ const App = () => {
             <VideoDetail video={selectedVideo} />
           </div>
           <div className="five wide column">
-            <VideoList videos={videos} onVideoSelect={onVideoSelect} />
+            <VideoList
+              onVideoSelect={setSelectedVideo}
+              videos={videos}
+            />
           </div>
         </div>
       </div>
